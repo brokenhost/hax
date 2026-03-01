@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>H4X0R LOGIN SYSTEM 2012</title>
+<title>INTERWEB DESTROYER</title>
 
 <style>
 body {
@@ -20,6 +20,17 @@ body {
     z-index: 0;
 }
 
+/* RANDOM JET */
+#jet {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 180px;
+    image-rendering: pixelated;
+    opacity: 0.7;
+    z-index: 2;
+}
+
 /* LOGIN */
 .login {
     position: relative;
@@ -28,6 +39,12 @@ body {
     margin-top: 120px;
     color: lime;
     font-family: monospace;
+}
+
+.title {
+    color: red;
+    font-family: Impact;
+    font-size: 50px;
 }
 
 input {
@@ -42,7 +59,7 @@ input {
 
 button {
     font-family: Courier New;
-    font-size: 16px;
+    font-size: 18px;
     background: yellow;
     color: black;
     border: 4px double red;
@@ -51,25 +68,24 @@ button {
     cursor: pointer;
 }
 
-#result {
-    margin-top: 60px;
-    font-size: 120px;
-    font-style: italic;
-    font-weight: bold;
+#loadingContainer {
+    width: 400px;
+    height: 30px;
+    background: black;
+    border: 2px solid lime;
+    margin: 20px auto;
+    display: none;
 }
 
-/* Rainbow win */
-.rainbow {
-    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
-    background-size: 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbowMove 2s linear infinite;
+#loadingBar {
+    height: 100%;
+    width: 0%;
+    background: lime;
 }
 
-@keyframes rainbowMove {
-    0% { background-position: 0%; }
-    100% { background-position: 400%; }
+#loadingText {
+    margin-top: 10px;
+    font-family: "Comic Sans MS";
 }
 
 /* DASHBOARD */
@@ -85,7 +101,6 @@ button {
 .profile {
     width: 160px;
     height: 160px;
-    background: gray;
     border-radius: 50%;
     margin-bottom: 20px;
 }
@@ -111,7 +126,7 @@ button {
     color: lime;
 }
 
-/* FAKE BLUE SCREEN */
+/* BSOD */
 #bluescreen {
     display: none;
     position: fixed;
@@ -124,15 +139,7 @@ button {
     font-family: "Comic Sans MS";
     z-index: 9999;
     padding: 60px;
-}
-
-#bluescreen h1 {
-    font-size: 60px;
-}
-
-#bluescreen img {
-    margin-top: 40px;
-    width: 200px;
+    white-space: pre-line;
 }
 </style>
 </head>
@@ -140,109 +147,192 @@ button {
 
 <canvas id="matrix"></canvas>
 
+<img id="jet" src="https://imgs.search.brave.com/IO9HKwRl55-DOxEUsSmoKe3FFlDeu1lS6Ft2W_lK7H4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vNE9Y/YWVueGNXSmt4MUlS/RmhDN0Y5TWtaVW80/Q1lxM1ZJeWx5Nk45/TFdWRS5qcGc">
+
 <div class="login" id="loginScreen">
-    <h1 style="color:red; font-family:Impact;">ULTRA SECURE LOGIN</h1>
+    <div class="title">INTERWEB DESTROYER v3.7</div>
+
     <div>USERNAME:</div>
     <input type="text" id="username">
+
     <div>PASSWORD:</div>
     <input type="password" id="password">
+
     <br>
-    <button onclick="login()">LOG IN</button>
-    <div id="result"></div>
+    <button onclick="useHax()">USE HAX</button>
+
+    <div id="loadingContainer">
+        <div id="loadingBar"></div>
+    </div>
+    <div id="loadingText"></div>
 </div>
 
 <div class="dashboard" id="dashboard">
-    <div class="profile"></div>
+    <div class="profile" id="profileCircle"></div>
     <div class="welcome" id="welcomeText"></div>
+
+    <div id="doxPanel" style="font-family:Courier New; font-size:18px; margin-top:30px; white-space:pre-line;"></div>
 
     <div class="menu">
         <button onclick="crash()">DELETE SYSTEM32</button>
-        <button onclick="crash()">STEAL RUNESCAPE ACCOUNT</button>
-        <button onclick="crash()">OVERHEAT CPU</button>
-        <button onclick="crash()">HACK PENTAGON</button>
-        <button onclick="crash()">FREE ROBUX GENERATOR</button>
-        <button onclick="crash()">OPEN DARK WEB</button>
+        <button onclick="crash()">NUKE INTERNET</button>
+        <button onclick="crash()">HACK NASA</button>
+        <button onclick="crash()">STEAL WIFI</button>
+        <button onclick="crash()">OVERLOAD MATRIX</button>
     </div>
 </div>
 
-<div id="bluescreen" onclick="reboot()">
-    <h1>:(</h1>
-    <p>Your PC ran into a problem and needs to restart.</p>
-    <p>We're just collecting some error info, and then we'll restart for you.</p>
-    <p>Stop code: SYSTEM_IS_GONE_FOREVER</p>
-
-    <img src="https://ih1.redbubble.net/image.4985559515.2005/st,small,507x507-pad,600x600,f8f8f8.jpg">
-
-    <p>Scan the QR code for more information.</p>
-    <p>(Click anywhere to reboot)</p>
-</div>
+<div id="bluescreen"></div>
 
 <script>
 // MATRIX
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const letters = "01";
 const fontSize = 18;
 const columns = canvas.width / fontSize;
-const drops = [];
-
-for (let x = 0; x < columns; x++)
-    drops[x] = 1;
+const drops = Array(columns).fill(1);
 
 function draw() {
     ctx.fillStyle = "rgba(0, 51, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "#00ff00";
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
+        const text = letters[Math.floor(Math.random() * 2)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
             drops[i] = 0;
-
         drops[i]++;
     }
 }
-
 setInterval(draw, 33);
 
-// LOGIN
-function login() {
-    const result = document.getElementById("result");
-    const username = document.getElementById("username").value || "UNKNOWN";
+// ALWAYS WIN
+function useHax() {
+    const username = document.getElementById("username").value || "1337_HAXOR";
+    const bar = document.getElementById("loadingBar");
+    const container = document.getElementById("loadingContainer");
+    const text = document.getElementById("loadingText");
 
-    if (Math.random() < 0.5) {
-        result.className = "rainbow";
-        result.innerHTML = "YOU WIN!";
+    container.style.display = "block";
+    text.innerText = "USING HAX...";
+    let progress = 0;
 
-        setTimeout(() => {
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        bar.style.width = progress + "%";
+
+        if (progress > 30) text.innerText = "BYPASSING FBI...";
+        if (progress > 60) text.innerText = "DELETING MAINFRAME...";
+        if (progress > 85) text.innerText = "DESTROYING INTERWEB...";
+
+        if (progress >= 100) {
+            clearInterval(interval);
             document.getElementById("loginScreen").style.display = "none";
             document.getElementById("dashboard").style.display = "block";
-            document.getElementById("welcomeText").innerHTML =
+            document.getElementById("welcomeText").innerText =
                 "Welcome, [" + username + "]";
-        }, 1500);
+function randomIP() {
+    return `${rand255()}.${rand255()}.${rand255()}.${rand255()}`;
+}
 
-    } else {
-        result.style.color = "orange";
-        result.innerHTML = "ACCESS DENIED";
+function rand255() {
+    return Math.floor(Math.random() * 256);
+}
+
+function randomIPv6() {
+    let blocks = [];
+    for (let i = 0; i < 8; i++) {
+        blocks.push(Math.floor(Math.random()*65536).toString(16));
     }
+    return blocks.join(":");
 }
 
-// FAKE CRASH
+function randomMAC() {
+    let mac = [];
+    for (let i = 0; i < 6; i++) {
+        mac.push(Math.floor(Math.random()*256).toString(16).padStart(2,"0"));
+    }
+    return mac.join(":").toUpperCase();
+}
+
+function randomDigits(length) {
+    let str = "";
+    for (let i = 0; i < length; i++) {
+        str += Math.floor(Math.random()*10);
+    }
+    return str;
+}
+
+function randomHex(length) {
+    let chars = "ABCDEF0123456789";
+    let str = "";
+    for (let i = 0; i < length; i++) {
+        str += chars[Math.floor(Math.random()*chars.length)];
+    }
+    return str;
+}
+
+function generateFakeDox() {
+    const panel = document.getElementById("doxPanel");
+
+    panel.innerText =
+`IP: ${randomIP()}
+(N): ${randomHex(6)}
+(W): ${randomHex(8)}
+SS Number: ${randomDigits(9)}
+IPv6 Address: ${randomIPv6()}
+WAN IP: ${randomIP()}
+WAN Type: Dynamic IP (DHCP)
+Gateway: ${randomIP()}
+Subnet Mask: 255.${rand255()}.255.0
+UPnP: Enabled
+DMZ: Active
+MAC Address: ${randomMAC()}
+Router IP: ${randomIP()}
+Firewall Status: Disabled
+Port Forwarding: Enabled
+Operating System: Windows Vista
+ISP: Hax Providers LLC
+Wi-Fi Password: ${randomDigits(12)}`;
+}
+            // random profile color
+            document.getElementById("profileCircle").style.background =
+                "hsl(" + Math.random()*360 + ",100%,50%)";
+		generateFakeDox();
+        }
+    }, 300);
+}
+
+// FAKE CRASH WITH SLOW TEXT
 function crash() {
-    document.getElementById("bluescreen").style.display = "block";
-}
+    const bsod = document.getElementById("bluescreen");
+    bsod.style.display = "block";
 
-// REBOOT
-function reboot() {
-    location.reload();
+    const text = `:(
+
+Your PC ran into a problem and needs to restart.
+
+Collecting error info...
+
+STOP CODE: TOTALLY_NOT_A_VIRUS
+
+Scan QR code for more info.
+(no joke)`;
+
+    let i = 0;
+    bsod.innerText = "";
+
+    const type = setInterval(() => {
+        bsod.innerText += text[i];
+        i++;
+        if (i >= text.length) clearInterval(type);
+    }, 40);
 }
 </script>
 
