@@ -1,340 +1,832 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>INTERWEB DESTROYER</title>
-
-<style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>~~*~~ WELCOME TO MY AWESOME WEBSITE!!!! ~~*~~</title>
+<style type="text/css">
 body {
-    margin: 0;
-    background: #003300;
-    cursor: url("https://img1.picmix.com/output/stamp/normal/2/7/3/3/2073372_31a85.gif"), auto;
-    overflow: hidden;
+  background-color: #000080;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='2' cy='2' r='1' fill='%230000aa' /%3E%3C/svg%3E");
+  font-family: Comic Sans MS, Verdana, Arial;
+  margin: 0; padding: 0;
 }
-
-/* MATRIX */
-#matrix {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-/* RANDOM JET */
-#jet {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 180px;
-    image-rendering: pixelated;
-    opacity: 0.7;
-    z-index: 2;
-}
-
-/* LOGIN */
-.login {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    margin-top: 120px;
-    color: lime;
-    font-family: monospace;
-}
-
-.title {
-    color: red;
-    font-family: Impact;
-    font-size: 50px;
-}
-
-input {
-    font-family: "Comic Sans MS";
-    font-size: 22px;
-    background: black;
-    color: cyan;
-    border: 3px dashed magenta;
-    margin: 10px;
-    padding: 5px;
-}
-
-button {
-    font-family: Courier New;
-    font-size: 18px;
-    background: yellow;
-    color: black;
-    border: 4px double red;
-    padding: 10px;
-    margin: 6px;
-    cursor: pointer;
-}
-
-#loadingContainer {
-    width: 400px;
-    height: 30px;
-    background: black;
-    border: 2px solid lime;
-    margin: 20px auto;
-    display: none;
-}
-
-#loadingBar {
-    height: 100%;
-    width: 0%;
-    background: lime;
-}
-
-#loadingText {
-    margin-top: 10px;
-    font-family: "Comic Sans MS";
-}
-
-/* DASHBOARD */
-.dashboard {
-    display: none;
-    position: relative;
-    z-index: 2;
-    padding: 60px;
-    font-family: "Comic Sans MS";
-    color: white;
-}
-
-.profile {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.welcome {
-    font-size: 60px;
-    margin-bottom: 40px;
-}
-
-.menu button {
-    display: block;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 50px;
-    margin: 15px 0;
-    text-align: left;
-    font-family: "Comic Sans MS";
-    cursor: pointer;
-}
-
-.menu button:hover {
-    color: lime;
-}
-
-/* BSOD */
-#bluescreen {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0000aa;
-    color: white;
-    font-family: "Comic Sans MS";
-    z-index: 9999;
-    padding: 60px;
-    white-space: pre-line;
-}
+.main-table { width: 780px; margin: 0 auto; background-color: #c0c0c0; border: 3px outset #ffffff; }
+.header-cell { background-color: #000080; text-align: center; padding: 5px; }
+.header-title { font-family: Comic Sans MS; font-size: 28px; color: #ffff00; text-shadow: 2px 2px #ff0000; animation: blink 0.8s step-start infinite; }
+@keyframes blink { 0%, 100% { visibility: visible; } 50% { visibility: hidden; } }
+.navbar { background-color: #800080; text-align: center; padding: 4px; border-top: 2px solid #ff00ff; border-bottom: 2px solid #ff00ff; }
+.navbar a { color: #00ffff; text-decoration: none; font-weight: bold; font-size: 14px; margin: 0 6px; font-family: Verdana; cursor: pointer; }
+.navbar a:hover, .navbar a.active { color: #ffff00; text-decoration: underline; }
+.left-sidebar { width: 160px; background-color: #0000aa; vertical-align: top; padding: 5px; }
+.main-content { background-color: #ffffcc; padding: 10px; vertical-align: top; }
+.right-sidebar { width: 160px; background-color: #0000aa; vertical-align: top; padding: 5px; text-align: center; }
+.sidebar-box { background-color: #000080; border: 2px inset #aaaaaa; color: #ffffff; padding: 5px; margin-bottom: 8px; font-size: 11px; font-family: Verdana; }
+.sidebar-box a { color: #ffff00; display: block; margin: 3px 0; text-decoration: none; cursor: pointer; }
+.sidebar-box a:hover { color: #00ffff; text-decoration: underline; }
+.sidebar-title { color: #ffff00; font-weight: bold; font-size: 12px; text-align: center; background-color: #800000; padding: 2px; margin-bottom: 4px; font-family: Comic Sans MS; }
+.post-box { background-color: #ffffff; border: 2px solid #800080; padding: 8px; margin-bottom: 10px; }
+.post-title { background-color: #800080; color: #ffff00; font-weight: bold; font-size: 14px; padding: 3px 6px; font-family: Comic Sans MS; }
+.post-body { font-size: 12px; color: #000000; font-family: Verdana; line-height: 1.6; }
+.post-body a { color: #0000ff; cursor: pointer; }
+.marquee-bar { background-color: #ff0000; color: #ffffff; font-weight: bold; font-size: 13px; padding: 3px; overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-block; animation: marquee 14s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(800px); } 100% { transform: translateX(-100%); } }
+.hit-counter { background-color: #000000; border: 2px inset #888; padding: 3px 8px; display: inline-block; color: #00ff00; font-family: "Courier New", monospace; font-size: 20px; letter-spacing: 4px; }
+.guestbook-btn { background-color: #ff8800; border: 3px outset #ffcc00; color: #000000; font-weight: bold; font-size: 13px; cursor: pointer; padding: 4px 10px; font-family: Comic Sans MS; }
+.guestbook-btn:hover { background-color: #ffcc00; border-style: inset; }
+.under-construction { text-align: center; padding: 5px; font-size: 11px; color: #ff8800; font-weight: bold; }
+.star-divider { text-align: center; color: #ff00ff; font-size: 18px; letter-spacing: 5px; margin: 6px 0; }
+.best-viewed { background-color: #ffff00; border: 1px solid #000000; font-size: 10px; color: #000000; padding: 3px; text-align: center; font-family: Verdana; }
+.footer-cell { background-color: #000080; text-align: center; padding: 5px; color: #aaaaaa; font-size: 11px; font-family: Verdana; border-top: 2px solid #ff00ff; }
+.rainbow-text span:nth-child(1){color:#ff0000}.rainbow-text span:nth-child(2){color:#ff7700}.rainbow-text span:nth-child(3){color:#ffff00}.rainbow-text span:nth-child(4){color:#00ff00}.rainbow-text span:nth-child(5){color:#0000ff}.rainbow-text span:nth-child(6){color:#8b00ff}.rainbow-text span:nth-child(7){color:#ff00ff}.rainbow-text span:nth-child(8){color:#ff0000}.rainbow-text span:nth-child(9){color:#ff7700}.rainbow-text span:nth-child(10){color:#ffff00}.rainbow-text span:nth-child(11){color:#00ff00}.rainbow-text span:nth-child(12){color:#0000ff}
+.spin-star { font-size: 20px; animation: spin 1s linear infinite; display: inline-block; color: #ffff00; font-weight: bold; }
+.spin-star.slow { animation-duration: 3s; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.visitor-box { background-color: #000033; border: 2px solid #00ffff; padding: 6px; text-align: center; margin-bottom: 8px; }
+.page-bg-stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
+.floating-star { position: absolute; color: #ffff00; font-size: 14px; font-family: Verdana; font-weight: bold; animation: floatUp 8s linear infinite; opacity: 0; }
+@keyframes floatUp { 0%{opacity:0;bottom:-20px} 10%{opacity:1} 90%{opacity:1} 100%{opacity:0;bottom:100%} }
+.poll-box { background-color: #003366; border: 2px inset #aaaaaa; padding: 6px; color: #ffffff; font-size: 11px; font-family: Verdana; }
+.poll-bar { height: 12px; background-color: #00cc00; margin: 2px 0; display: inline-block; }
+.blinking-new { color: #ff0000; font-weight: bold; font-size: 11px; animation: blink 0.5s step-start infinite; }
+.awards-section { text-align: center; }
+/* PAGE SECTIONS */
+.page-section { display: none; }
+.page-section.active { display: block; }
+/* MODAL OVERLAY */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+.modal-overlay.open { display: flex; }
+.modal-box { background: #c0c0c0; border: 3px outset #ffffff; width: 460px; max-height: 80vh; overflow-y: auto; font-family: Verdana; font-size: 12px; }
+.modal-titlebar { background: #000080; color: #ffffff; padding: 4px 8px; font-weight: bold; font-family: Verdana; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+.modal-close { background: #c0c0c0; border: 2px outset #ffffff; color: #000; font-weight: bold; cursor: pointer; padding: 1px 6px; font-size: 12px; }
+.modal-close:hover { border-style: inset; }
+.modal-body { padding: 10px; }
+/* PHOTO GRID */
+.photo-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.photo-item { border: 3px ridge #800080; background: #ffffff; text-align: center; width: 120px; cursor: pointer; }
+.photo-item:hover { border-color: #ff00ff; }
+.photo-placeholder { width: 120px; height: 90px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #888; font-family: Verdana; flex-direction: column; }
+.photo-caption { font-size: 10px; font-family: Verdana; color: #000; padding: 3px; background: #ffffcc; }
+/* GUESTBOOK */
+.gb-entry { background: #ffffff; border: 1px solid #800080; padding: 6px; margin-bottom: 6px; font-family: Verdana; font-size: 11px; }
+.gb-name { color: #800080; font-weight: bold; }
+.gb-date { color: #888; font-size: 10px; }
+input[type=text], input[type=email], textarea { border: 2px inset #888; font-family: Verdana; font-size: 11px; padding: 2px; width: 100%; box-sizing: border-box; margin-bottom: 4px; }
+textarea { height: 60px; resize: vertical; }
+label { font-family: Verdana; font-size: 11px; display: block; margin-bottom: 2px; color: #000; }
+.form-submit { background: #000080; color: #ffff00; border: 3px outset #aaaaaa; font-family: Comic Sans MS; font-size: 13px; cursor: pointer; padding: 3px 12px; }
+.form-submit:hover { background: #0000cc; border-style: inset; }
+/* MUSIC PLAYER */
+.track-list { list-style: none; padding: 0; margin: 0; }
+.track-list li { padding: 4px 6px; border-bottom: 1px solid #ccaacc; font-family: Verdana; font-size: 11px; cursor: pointer; }
+.track-list li:hover { background: #800080; color: #ffff00; }
+.track-list li.playing { background: #400040; color: #00ffff; font-weight: bold; }
+.music-player { background: #000000; border: 2px inset #888; padding: 8px; text-align: center; margin-bottom: 8px; color: #00ff00; font-family: "Courier New", monospace; font-size: 11px; }
+.music-btn { background: #333; border: 2px outset #888; color: #ffffff; cursor: pointer; padding: 3px 8px; font-size: 12px; margin: 2px; }
+.music-btn:hover { background: #555; border-style: inset; }
+/* COMMENTS */
+.comment-box { background: #fff0ff; border: 1px dashed #800080; padding: 6px; margin-bottom: 5px; font-family: Verdana; font-size: 11px; }
+.comment-author { color: #800080; font-weight: bold; }
+/* LINKS PAGE */
+.links-category { margin-bottom: 10px; }
+.links-category h3 { background: #800080; color: #ffff00; padding: 3px 6px; margin: 0 0 4px 0; font-family: Comic Sans MS; font-size: 13px; }
+.links-category a { display: block; color: #0000cc; font-family: Verdana; font-size: 11px; padding: 2px 6px; text-decoration: none; }
+.links-category a:hover { background: #ffffaa; text-decoration: underline; }
+/* ABOUT sections */
+.about-section { background: #ffffff; border: 2px solid #800080; padding: 8px; margin-bottom: 8px; font-family: Verdana; font-size: 12px; }
+.about-section h3 { background: #800080; color: #ffff00; margin: -8px -8px 8px -8px; padding: 3px 8px; font-family: Comic Sans MS; font-size: 14px; }
+.quiz-result { border: 2px solid #800080; background: #fff0ff; padding: 8px; text-align: center; margin: 8px 0; }
 </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="page-bg-stars" id="starfield"></div>
 
-<img id="jet" src="https://imgs.search.brave.com/IO9HKwRl55-DOxEUsSmoKe3FFlDeu1lS6Ft2W_lK7H4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vNE9Y/YWVueGNXSmt4MUlS/RmhDN0Y5TWtaVW80/Q1lxM1ZJeWx5Nk45/TFdWRS5qcGc">
-
-<div class="login" id="loginScreen">
-    <div class="title">INTERWEB DESTROYER v3.7</div>
-
-    <div>USERNAME:</div>
-    <input type="text" id="username">
-
-    <div>PASSWORD:</div>
-    <input type="password" id="password">
-
-    <br>
-    <button onclick="useHax()">USE HAX</button>
-
-    <div id="loadingContainer">
-        <div id="loadingBar"></div>
+<!-- MODAL OVERLAY (reused for all popups) -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-titlebar">
+      <span id="modalTitle">Window</span>
+      <button class="modal-close" onclick="closeModal()">X</button>
     </div>
-    <div id="loadingText"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
 </div>
 
-<div class="dashboard" id="dashboard">
-    <div class="profile" id="profileCircle"></div>
-    <div class="welcome" id="welcomeText"></div>
-
-    <div id="doxPanel" style="font-family:Courier New; font-size:18px; margin-top:30px; white-space:pre-line;"></div>
-
-    <div class="menu">
-        <button onclick="crash()">DELETE SYSTEM32</button>
-        <button onclick="crash()">NUKE INTERNET</button>
-        <button onclick="crash()">HACK NASA</button>
-        <button onclick="crash()">STEAL WIFI</button>
-        <button onclick="crash()">OVERLOAD MATRIX</button>
+<!-- MAIN TABLE -->
+<table class="main-table" cellpadding="0" cellspacing="0">
+<tr>
+  <td colspan="3" class="header-cell">
+    <span class="spin-star">*</span>
+    <span class="spin-star slow">+</span>
+    &nbsp;
+    <span class="header-title">~~*~~ WELCOME TO MY AWESOME WEBSITE ~~*~~</span>
+    &nbsp;
+    <span class="spin-star slow">+</span>
+    <span class="spin-star">*</span>
+    <br />
+    <div class="rainbow-text" style="font-size:16px;font-family:Comic Sans MS;font-weight:bold;letter-spacing:2px;">
+      <span>T</span><span>H</span><span>E</span><span>&nbsp;</span><span>C</span><span>O</span><span>O</span><span>L</span><span>E</span><span>S</span><span>T</span><span>!</span>
     </div>
-</div>
+    <br/>
+    <div style="width:468px;height:60px;background:linear-gradient(90deg,#ff0000,#ff7700,#ffff00,#00ff00,#0000ff,#8b00ff);border:2px solid #ffff00;margin:0 auto;display:flex;align-items:center;justify-content:center;">
+      <span style="font-family:Comic Sans MS;font-size:22px;color:#ffffff;font-weight:bold;text-shadow:2px 2px #000;">** Brittany's World **</span>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td colspan="3" class="navbar">
+    <a onclick="showPage('home')" id="nav-home" class="active">[HOME]</a> |
+    <a onclick="showPage('about')" id="nav-about">[ABOUT ME]</a> |
+    <a onclick="showPage('photos')" id="nav-photos">[PHOTOS]</a> |
+    <a onclick="showPage('music')" id="nav-music">[MY MUSIC]</a> |
+    <a onclick="showPage('guestbook')" id="nav-guestbook">[GUESTBOOK]</a> |
+    <a onclick="showPage('links')" id="nav-links">[LINKS]</a> |
+    <a onclick="showPage('contact')" id="nav-contact">[CONTACT]</a>
+  </td>
+</tr>
+<tr>
+  <td colspan="3" class="marquee-bar">
+    <div class="marquee-inner">
+      *** WELCOME TO MY SITE!!! *** &nbsp;&nbsp;&nbsp; Please sign my guestbook!!! :) &nbsp;&nbsp;&nbsp; This site is best viewed in Internet Explorer 6 at 800x600!!! &nbsp;&nbsp;&nbsp; *** 100 VISITORS!! THANK YOU!!!! *** &nbsp;&nbsp;&nbsp; NEW PHOTOS ADDED!!! CHECK THEM OUT!!! &nbsp;&nbsp;&nbsp;
+    </div>
+  </td>
+</tr>
+<tr>
+  <!-- LEFT SIDEBAR -->
+  <td class="left-sidebar">
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- MY LINKS --</div>
+      <a onclick="showPage('links')">&raquo; My MySpace</a>
+      <a onclick="showPage('links')">&raquo; My Xanga</a>
+      <a onclick="showPage('links')">&raquo; My DeviantArt</a>
+      <a onclick="showPage('links')">&raquo; My Neopets</a>
+      <a onclick="showPage('links')">&raquo; My AIM Profile</a>
+      <a onclick="showPage('links')">&raquo; My Buzznet</a>
+      <a onclick="showPage('links')">&raquo; Homestar Runner</a>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- MY FRIENDS --</div>
+      <a onclick="openFriendProfile('Kayla')">&raquo; xXxKayla2007xXx</a>
+      <a onclick="openFriendProfile('Ashley')">&raquo; ~*~Ashley~*~</a>
+      <a onclick="openFriendProfile('DarkPhoenix666')">&raquo; DarkPhoenix666</a>
+      <a onclick="openFriendProfile('PrincessBubbles')">&raquo; PrincessBubbles</a>
+      <a onclick="openFriendProfile('SkaterBoi94')">&raquo; SkaterBoi94</a>
+      <a onclick="openFriendProfile('EMO_4EVR')">&raquo; EMO_4EVR</a>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- CALENDAR --</div>
+      <div style="font-size:10px;color:#aaffaa;text-align:center;">
+        &lt;&lt; March 2007 &gt;&gt;<br/>
+        <table style="margin:0 auto;font-size:9px;color:#ffffff;" cellpadding="1">
+          <tr><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td></tr>
+          <tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+          <tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
+          <tr><td>18</td><td>19</td><td>20</td><td>21</td><td style="color:#ff0000;font-weight:bold;">22</td><td>23</td><td>24</td></tr>
+          <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="under-construction">!! UNDER CONSTRUCTION !!</div>
+    <div style="text-align:center;margin-top:5px;color:#ff8800;font-size:18px;font-weight:bold;font-family:Verdana;">[/// ///]</div>
+  </td>
 
-<div id="bluescreen"></div>
+  <!-- MAIN CONTENT AREA -->
+  <td class="main-content" id="mainContent">
 
-<script>
-// MATRIX
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    <!-- HOME PAGE -->
+    <div class="page-section active" id="page-home">
+      <div class="best-viewed">!! BEST VIEWED IN INTERNET EXPLORER 6 AT 800x600 RESOLUTION WITH SPEAKERS ON !!</div>
+      <div class="star-divider">* ~ * ~ * ~ * ~ * ~ * ~ *</div>
 
-const letters = "01";
-const fontSize = 18;
-const columns = canvas.width / fontSize;
-const drops = Array(columns).fill(1);
+      <div class="post-box">
+        <div class="post-title">&gt;&gt; NEW UPDATE!! - Thursday, March 22, 2007 @ 4:47 PM <span class="blinking-new">[NEW!!!]</span></div>
+        <div class="post-body">
+          <p>OMG HI EVERYONE!!!! I finally updated my website again lol. Sorry I havent posted in like FOREVER!!!! School has been SO crazy lately ughhh. Anyway I added some new photos to my gallery from the mall last weekend!!! Me and Ashley and Kayla had sooooo much fun!!! <a onclick="showPage('photos')">Check them out!!!</a></p>
+          <p>Also I changed my layout again bc I got bored of the old one lol. Do u like the new colors?? Comment and tell me!! I used Paint Shop Pro to make the banner. I think it looks SO COOL!!! :D :D</p>
+          <p>PS: My AIM screenname is xStarlightDreamerx if anyone wants to talk!!! BUT if i dont know u i will block u lol</p>
+          <p align="right"><font size="1" color="#808080">posted by: ~*~Brittany~*~ | <a onclick="openComments('update1')">0 comments</a> | <a onclick="openComments('update1')">permalink</a></font></p>
+        </div>
+      </div>
 
-function draw() {
-    ctx.fillStyle = "rgba(0, 51, 0, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00ff00";
-    ctx.font = fontSize + "px monospace";
+      <div class="post-box">
+        <div class="post-title">&gt;&gt; OMG THIS SONG IS SO ME RIGHT NOW - Monday, March 19, 2007 @ 9:12 PM</div>
+        <div class="post-body">
+          <p>Ok so I've been listening to My Chemical Romance ALL DAY like literally on repeat and I feel like Gerard Way WROTE THIS SONG ABOUT MY LIFE. If u havent listened to Welcome to the Black Parade yet what are u even doing lol????</p>
+          <p>Also Panic! At The Disco's new album is AMAZINGGGGG. Brendon Urie is SO cute omg. My friend says Fall Out Boy is better but she is WRONG lol no offense Ashley :P</p>
+          <div style="background:#ffffaa;border:1px dashed #888;padding:5px;font-style:italic;font-size:11px;font-family:Verdana;">
+            &gt;&gt; <b>Song playing in my head:</b> "Welcome to the Black Parade" - My Chemical Romance &lt;&lt;
+          </div>
+          <p align="right"><font size="1" color="#808080">posted by: ~*~Brittany~*~ | <a onclick="openComments('mcr')">3 comments</a> | <a onclick="openComments('mcr')">permalink</a></font></p>
+        </div>
+      </div>
 
-    for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * 2)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
-            drops[i] = 0;
-        drops[i]++;
+      <div class="post-box">
+        <div class="post-title">&gt;&gt; Quiz Results: What Type of Person Are You??? - Saturday, March 17, 2007 @ 2:33 PM</div>
+        <div class="post-body">
+          <p>Ok I took this quiz on Quizilla and OMG IT IS SO ACCURATE!!!! lol</p>
+          <div style="border:2px solid #800080;background:#fff0ff;padding:8px;text-align:center;">
+            <b style="font-size:14px;color:#800080;">YOU ARE: The Dreamy Romantic!</b><br/>
+            <div style="font-size:11px;margin-top:5px;">You are sensitive and emotional. You feel things deeply and ur friends come to u when they need advice!!! You are creative and artistic. Your fave colors are probably purple and blue. U believe in true love!!</div>
+            <br/>
+            <div style="font-size:10px;color:#808080;">
+              <a onclick="openQuiz()" style="cursor:pointer;color:#0000ff;">Take this quiz!</a> | <a onclick="openQuiz()" style="cursor:pointer;color:#0000ff;">Make your own quiz!</a>
+            </div>
+          </div>
+          <p align="right"><font size="1" color="#808080">posted by: ~*~Brittany~*~ | <a onclick="openComments('quiz')">7 comments</a> | <a onclick="openComments('quiz')">permalink</a></font></p>
+        </div>
+      </div>
+
+      <div class="star-divider">* ~ * ~ * ~ * ~ * ~ * ~ *</div>
+      <table width="100%" cellpadding="0" cellspacing="5">
+        <tr>
+          <td align="center"><button class="guestbook-btn" onclick="showPage('guestbook')">[SIGN MY GUESTBOOK!!!]</button></td>
+          <td align="center"><button class="guestbook-btn" onclick="showPage('contact')" style="background-color:#ff66aa;border-color:#ff99cc;">[EMAIL ME!!!]</button></td>
+          <td align="center"><button class="guestbook-btn" onclick="showPage('photos')" style="background-color:#66ff66;border-color:#00cc00;">[SEE MY PHOTOS!!!]</button></td>
+        </tr>
+      </table>
+      <div class="star-divider" style="margin-top:10px;">. . . . . . . . . . . . . . .</div>
+      <div style="background:#ffeecc;border:1px solid #ff8800;padding:5px;font-size:10px;font-family:Verdana;text-align:center;">
+        &gt;&gt; <b>If u cant hear the music make sure ur speakers are on!!!</b> (Playing: "My Heart Will Go On" - MIDI Version) | <a onclick="showPage('music')" style="cursor:pointer;color:#0000ff;">Go to Music Page</a>
+      </div>
+    </div>
+
+    <!-- ABOUT ME PAGE -->
+    <div class="page-section" id="page-about">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; ABOUT ME &lt;&lt;</div>
+      <div class="about-section">
+        <h3>The Basics</h3>
+        <table style="font-family:Verdana;font-size:12px;width:100%;" cellpadding="3">
+          <tr><td><b>Name:</b></td><td>Brittany Nicole</td></tr>
+          <tr style="background:#fff0ff;"><td><b>Age:</b></td><td>16 (March 4th, 1991)</td></tr>
+          <tr><td><b>Location:</b></td><td>Columbus, Ohio</td></tr>
+          <tr style="background:#fff0ff;"><td><b>Grade:</b></td><td>10th grade</td></tr>
+          <tr><td><b>Status:</b></td><td>Single :( looking 4 my MCR-obsessed soulmate lol</td></tr>
+          <tr style="background:#fff0ff;"><td><b>AIM:</b></td><td>xStarlightDreamerx</td></tr>
+          <tr><td><b>MySpace:</b></td><td><a onclick="openModal('MySpace','&lt;p style=&quot;font-family:Verdana;font-size:12px;&quot;&gt;Sorry!! My MySpace is set to private!! Add me as a friend first and then I will approve u!!! :)&lt;/p&gt;')" style="cursor:pointer;color:#0000ff;">click here (private)</a></td></tr>
+        </table>
+      </div>
+      <div class="about-section">
+        <h3>Favorites!!!</h3>
+        <table style="font-family:Verdana;font-size:12px;width:100%;" cellpadding="3">
+          <tr><td><b>Bands:</b></td><td>MCR, Panic! At The Disco, FOB, Paramore, The Used</td></tr>
+          <tr style="background:#fff0ff;"><td><b>Color:</b></td><td>Purple and black</td></tr>
+          <tr><td><b>Movie:</b></td><td>The Notebook, Nightmare Before Christmas, Edward Scissorhands</td></tr>
+          <tr style="background:#fff0ff;"><td><b>TV Show:</b></td><td>The OC, Degrassi, Whose Line Is It Anyway</td></tr>
+          <tr><td><b>Food:</b></td><td>Pizza and ramen noodles lol</td></tr>
+          <tr style="background:#fff0ff;"><td><b>Book:</b></td><td>Twilight (Edward is PERFECT ok), Harry Potter</td></tr>
+          <tr><td><b>Quote:</b></td><td><i>"I am not afraid to keep on living" - MCR</i></td></tr>
+        </table>
+      </div>
+      <div class="about-section">
+        <h3>My Quiz Results!!!</h3>
+        <div class="quiz-result">
+          <b style="color:#800080;">What MCR Song Are You???</b><br/>
+          <i style="font-size:11px;">You are: "Helena"!! You are dramatic and passionate and u feel everything SO DEEPLY. ur probably really good at art!!</i>
+        </div>
+        <div class="quiz-result">
+          <b style="color:#800080;">What Hogwarts House Are You???</b><br/>
+          <i style="font-size:11px;">You are: RAVENCLAW!! Smart, creative, and a little quirky. u prob have a lot of books in ur room lol</i>
+        </div>
+        <p align="center"><button class="guestbook-btn" onclick="openQuiz()">Take the Quiz!!!</button></p>
+      </div>
+    </div>
+
+    <!-- PHOTOS PAGE -->
+    <div class="page-section" id="page-photos">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; MY PHOTOS &lt;&lt; <span class="blinking-new">[UPDATED!!!]</span></div>
+      <div class="post-box">
+        <div class="post-title">Mall Trip with Kayla and Ashley!! - March 18, 2007</div>
+        <div class="post-body">
+          <p>OMG we had so much fun!!! We went to Hot Topic and Spencer's and then got Auntie Anne's pretzels lol. Click any photo to make it bigger!!!</p>
+          <div class="photo-grid">
+            <div class="photo-item" onclick="openPhoto('Mall selfie!! :D','#cc88cc')">
+              <div class="photo-placeholder" style="background:#cc88cc;color:#fff;">[ PHOTO ]<br/>IMG_0042.jpg</div>
+              <div class="photo-caption">me at the mall!! :D</div>
+            </div>
+            <div class="photo-item" onclick="openPhoto('Me and Kayla outside Hot Topic!!','#8888cc')">
+              <div class="photo-placeholder" style="background:#8888cc;color:#fff;">[ PHOTO ]<br/>IMG_0043.jpg</div>
+              <div class="photo-caption">me + kayla &lt;3</div>
+            </div>
+            <div class="photo-item" onclick="openPhoto('Ashley being silly lol','#cc8888')">
+              <div class="photo-placeholder" style="background:#cc8888;color:#fff;">[ PHOTO ]<br/>IMG_0044.jpg</div>
+              <div class="photo-caption">ashley being dumb lol</div>
+            </div>
+            <div class="photo-item" onclick="openPhoto('Our pretzels!! Yum!!!','#cccc88')">
+              <div class="photo-placeholder" style="background:#cccc88;color:#fff;">[ PHOTO ]<br/>IMG_0045.jpg</div>
+              <div class="photo-caption">auntie anne's!!!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post-box">
+        <div class="post-title">School Photos + Random Stuff</div>
+        <div class="post-body">
+          <div class="photo-grid">
+            <div class="photo-item" onclick="openPhoto('My cat Mr. Whiskers!!!','#88aa88')">
+              <div class="photo-placeholder" style="background:#88aa88;color:#fff;">[ PHOTO ]<br/>IMG_0031.jpg</div>
+              <div class="photo-caption">Mr. Whiskers!!! &lt;3</div>
+            </div>
+            <div class="photo-item" onclick="openPhoto('My MCR poster collection in my room!!','#aa88aa')">
+              <div class="photo-placeholder" style="background:#aa88aa;color:#fff;">[ PHOTO ]<br/>IMG_0033.jpg</div>
+              <div class="photo-caption">my room :)</div>
+            </div>
+            <div class="photo-item" onclick="openPhoto('My awesome Converse I drew on with Sharpie!!!','#8899bb')">
+              <div class="photo-placeholder" style="background:#8899bb;color:#fff;">[ PHOTO ]<br/>IMG_0035.jpg</div>
+              <div class="photo-caption">my shoes!! i drew on them</div>
+            </div>
+          </div>
+          <p style="font-size:10px;font-family:Verdana;color:#888;">** Note: Some photos removed bc my mom said so lol **</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY MUSIC PAGE -->
+    <div class="page-section" id="page-music">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; MY MUSIC &lt;&lt;</div>
+      <div class="post-box">
+        <div class="post-title">Now Playing on my Site!!</div>
+        <div class="post-body">
+          <div class="music-player" id="musicPlayer">
+            &gt;&gt; NOW PLAYING: <span id="nowPlaying">My Heart Will Go On (MIDI)</span> &lt;&lt;<br/>
+            <span style="color:#888;font-size:10px;">[ ====-------] 0:47 / 4:32</span>
+          </div>
+          <div style="text-align:center;margin-bottom:8px;">
+            <button class="music-btn" onclick="musicControl('prev')">[|&lt;]</button>
+            <button class="music-btn" onclick="musicControl('play')" id="playBtn">[ &gt;&gt; ]</button>
+            <button class="music-btn" onclick="musicControl('stop')">[STOP]</button>
+            <button class="music-btn" onclick="musicControl('next')">[&gt;|]</button>
+          </div>
+          <p style="font-size:11px;font-family:Verdana;color:#888888;">Note: MIDI quality sorry lol my bandwidth is limited</p>
+        </div>
+      </div>
+      <div class="post-box">
+        <div class="post-title">My Fave Songs Right Now!!</div>
+        <div class="post-body">
+          <p style="font-size:11px;font-family:Verdana;">Click a song to "play" it :)</p>
+          <ul class="track-list" id="trackList">
+            <li onclick="selectTrack(0)" class="playing">1. MCR - Welcome to the Black Parade</li>
+            <li onclick="selectTrack(1)">2. Panic! At The Disco - I Write Sins Not Tragedies</li>
+            <li onclick="selectTrack(2)">3. Fall Out Boy - Sugar We're Goin Down</li>
+            <li onclick="selectTrack(3)">4. Paramore - Misery Business</li>
+            <li onclick="selectTrack(4)">5. The Used - All That I've Got</li>
+            <li onclick="selectTrack(5)">6. Evanescence - Bring Me To Life</li>
+            <li onclick="selectTrack(6)">7. Dashboard Confessional - Hands Down</li>
+            <li onclick="selectTrack(7)">8. Taking Back Sunday - MakeDamnSure</li>
+            <li onclick="selectTrack(8)">9. Hawthorne Heights - Ohio Is For Lovers</li>
+            <li onclick="selectTrack(9)">10. My Heart Will Go On (MIDI Version) - lol</li>
+          </ul>
+        </div>
+      </div>
+      <div class="post-box">
+        <div class="post-title">My Rating System</div>
+        <div class="post-body" style="font-size:11px;">
+          <b>***** = AMAZING OMFG</b><br/>
+          <b>**** = Really good</b><br/>
+          <b>*** = Its ok</b><br/>
+          <b>** = meh</b><br/>
+          <b>* = my mom's taste in music</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUESTBOOK PAGE -->
+    <div class="page-section" id="page-guestbook">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; SIGN MY GUESTBOOK!!! &lt;&lt;</div>
+      <div class="post-box">
+        <div class="post-title">Leave a Message!!!</div>
+        <div class="post-body">
+          <label>Your Name:</label>
+          <input type="text" id="gbName" placeholder="ur name or screenname" />
+          <label>Your Website (optional):</label>
+          <input type="text" id="gbSite" placeholder="http://www.myspace.com/..." />
+          <label>Message:</label>
+          <textarea id="gbMsg" placeholder="leave me a message!! :D"></textarea>
+          <div style="text-align:center;margin-top:6px;">
+            <button class="form-submit" onclick="submitGuestbook()">[ POST MESSAGE!!! ]</button>
+          </div>
+        </div>
+      </div>
+      <div id="gbEntries">
+        <div class="gb-entry">
+          <span class="gb-name">xXxKayla2007xXx</span> <span class="gb-date">March 21, 2007 @ 8:14pm</span><br/>
+          omg ur site looks SO COOL brittany!!!! i love the new layout!!! cant wait to hang out again this weekend lol. call me!!! &lt;3 &lt;3 &lt;3
+        </div>
+        <div class="gb-entry">
+          <span class="gb-name">DarkPhoenix666</span> <span class="gb-date">March 20, 2007 @ 3:47pm</span><br/>
+          hey found ur site from the webring. mcr rules. nice site. check out mine sometime
+        </div>
+        <div class="gb-entry">
+          <span class="gb-name">~*~Ashley~*~</span> <span class="gb-date">March 19, 2007 @ 10:02pm</span><br/>
+          fob IS better and u know it!!! lol jk love u britt ur my best friend FOREVER!!! this site is amazingggg how do u make it look so good???
+        </div>
+        <div class="gb-entry">
+          <span class="gb-name">PrincessBubbles</span> <span class="gb-date">March 17, 2007 @ 5:33pm</span><br/>
+          OMG I got "Helena" too on that MCR quiz!!!! we r so alike lol. ur site is cute :)
+        </div>
+      </div>
+    </div>
+
+    <!-- LINKS PAGE -->
+    <div class="page-section" id="page-links">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; MY LINKS &lt;&lt;</div>
+      <div class="post-box">
+        <div class="post-body">
+          <p style="font-size:11px;font-family:Verdana;color:#800080;font-weight:bold;">** If u want to be on my links page just sign my guestbook and leave ur URL!! I will add u if ur site is cool :) **</p>
+          <div class="links-category">
+            <h3>-- My Own Pages --</h3>
+            <a onclick="openExternalLink('MySpace')">&raquo; My MySpace (add me!!!)</a>
+            <a onclick="openExternalLink('Xanga')">&raquo; My Xanga (my other blog)</a>
+            <a onclick="openExternalLink('DeviantArt')">&raquo; My DeviantArt (my drawings)</a>
+            <a onclick="openExternalLink('Buzznet')">&raquo; My Buzznet (more photos)</a>
+          </div>
+          <div class="links-category">
+            <h3>-- Cool Sites --</h3>
+            <a onclick="openExternalLink('Homestar Runner')">&raquo; Homestar Runner - SO FUNNY</a>
+            <a onclick="openExternalLink('Newgrounds')">&raquo; Newgrounds - cool animations</a>
+            <a onclick="openExternalLink('Albino Blacksheep')">&raquo; Albino Blacksheep - lol</a>
+            <a onclick="openExternalLink('Neopets')">&raquo; Neopets - my username is StarBrittany07</a>
+            <a onclick="openExternalLink('Quizilla')">&raquo; Quizilla - take quizzes!!!</a>
+          </div>
+          <div class="links-category">
+            <h3>-- My Friends Sites --</h3>
+            <a onclick="openFriendProfile('Kayla')">&raquo; xXxKayla2007xXx's site</a>
+            <a onclick="openFriendProfile('Ashley')">&raquo; Ashley's Xanga</a>
+            <a onclick="openFriendProfile('DarkPhoenix666')">&raquo; DarkPhoenix666 (emo site)</a>
+            <a onclick="openFriendProfile('PrincessBubbles')">&raquo; PrincessBubbles</a>
+          </div>
+          <div class="links-category">
+            <h3>-- Music Related --</h3>
+            <a onclick="openExternalLink('MCR official site')">&raquo; My Chemical Romance Official Site</a>
+            <a onclick="openExternalLink('P!ATD official site')">&raquo; Panic! At The Disco Official Site</a>
+            <a onclick="openExternalLink('PureVolume')">&raquo; PureVolume - free music</a>
+            <a onclick="openExternalLink('Last.fm')">&raquo; Last.fm - my music profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div class="page-section" id="page-contact">
+      <div class="post-title" style="margin-bottom:8px;">&gt;&gt; CONTACT ME &lt;&lt;</div>
+      <div class="post-box">
+        <div class="post-title">How 2 reach me!!</div>
+        <div class="post-body">
+          <table style="font-family:Verdana;font-size:12px;width:100%;" cellpadding="5">
+            <tr style="background:#fff0ff;"><td><b>AIM:</b></td><td>xStarlightDreamerx <span style="color:#888;font-size:10px;">(usually online after 3pm)</span></td></tr>
+            <tr><td><b>Email:</b></td><td>brittany2007@coolmail.com</td></tr>
+            <tr style="background:#fff0ff;"><td><b>MySpace:</b></td><td><a onclick="openExternalLink('MySpace')" style="cursor:pointer;color:#0000ff;">click here</a> (add me!!)</td></tr>
+            <tr><td><b>Xanga:</b></td><td><a onclick="openExternalLink('Xanga')" style="cursor:pointer;color:#0000ff;">click here</a></td></tr>
+          </table>
+          <br/>
+          <div style="background:#ffffaa;border:1px solid #888;padding:5px;font-size:11px;font-family:Verdana;">
+            <b>!! IMPORTANT !!</b> Do NOT add me on AIM if I dont know u or I WILL block u. I only accept adds from people I know IRL or from the guestbook :)
+          </div>
+        </div>
+      </div>
+      <div class="post-box">
+        <div class="post-title">Send me a message!!</div>
+        <div class="post-body">
+          <label>Your Name:</label>
+          <input type="text" id="contactName" placeholder="ur name" />
+          <label>Your Email:</label>
+          <input type="email" id="contactEmail" placeholder="ur email (so i can reply!)" />
+          <label>Subject:</label>
+          <input type="text" id="contactSubject" placeholder="what is this about" />
+          <label>Message:</label>
+          <textarea id="contactMsg" style="height:80px;" placeholder="write ur message here!!"></textarea>
+          <div style="text-align:center;margin-top:6px;">
+            <button class="form-submit" onclick="submitContact()">[ SEND MESSAGE!!! ]</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </td>
+
+  <!-- RIGHT SIDEBAR -->
+  <td class="right-sidebar">
+    <div class="visitor-box">
+      <div style="color:#ffff00;font-weight:bold;font-size:11px;font-family:Verdana;margin-bottom:4px;">VISITORS:</div>
+      <div class="hit-counter" id="counter">001337</div>
+      <div style="color:#aaaaaa;font-size:9px;font-family:Verdana;margin-top:3px;">u r visitor #1337!!</div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- POLL!!! --</div>
+      <div class="poll-box">
+        <b>Whats ur fave band???</b><br/><br/>
+        <label><input type="radio" name="poll" value="MCR" /> MCR</label>
+        <label><input type="radio" name="poll" value="PATD" /> P!ATD</label>
+        <label><input type="radio" name="poll" value="FOB" /> FOB</label>
+        <label><input type="radio" name="poll" value="Paramore" /> Paramore</label>
+        <label><input type="radio" name="poll" value="Other" /> Other</label><br/><br/>
+        <button onclick="submitPoll()" style="background:#ff00ff;color:#fff;border:1px solid #fff;font-size:10px;cursor:pointer;padding:2px 6px;font-family:Verdana;">VOTE!</button>
+        <br/><br/>
+        <div style="font-size:9px;" id="pollResults">
+          Results:<br/>
+          MCR: <span class="poll-bar" style="width:50px;"></span> 42%<br/>
+          P!ATD: <span class="poll-bar" style="width:30px;background:#ff8800;"></span> 28%<br/>
+          FOB: <span class="poll-bar" style="width:15px;background:#0088ff;"></span> 15%<br/>
+          Paramore: <span class="poll-bar" style="width:10px;background:#ff0000;"></span> 10%<br/>
+          Other: <span class="poll-bar" style="width:5px;background:#888;"></span> 5%<br/>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- LAST ONLINE --</div>
+      <div style="color:#aaffaa;font-size:10px;text-align:center;">
+        [ONLINE NOW!!!]<br/><br/>
+        <span style="color:#ffff00;">AIM:</span><br/>xStarlightDreamerx<br/><br/>
+        <span style="color:#aaaaaa;font-size:9px;">"I'm not okay (I promise)" -MCR</span>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">-- ABOUT ME --</div>
+      <div style="color:#ffffff;font-size:10px;line-height:1.6;">
+        Name: Brittany<br/>Age: 16<br/>Location: Ohio<br/>Fave color: Purple<br/>Fave band: MCR<br/>Fave movie: The Notebook<br/>Status: Single :(<br/>Mood: ~*~emo~*~<br/>
+        <br/><a onclick="showPage('about')" style="color:#ffff00;cursor:pointer;">&raquo; Full profile</a>
+      </div>
+    </div>
+    <div class="awards-section">
+      <div style="color:#ffff00;font-weight:bold;font-size:11px;font-family:Verdana;margin:4px 0;">-- AWARDS --</div>
+      <div style="background:#ffcc00;border:2px ridge #ff8800;padding:4px;font-size:10px;margin:3px 0;font-family:Verdana;color:#000;">[#1] Cool Site of the Week! (Feb 2007)</div>
+      <div style="background:#aaaaaa;border:2px ridge #888888;padding:4px;font-size:10px;margin:3px 0;font-family:Verdana;color:#000;">[*] Featured on WebRing!</div>
+    </div>
+    <div style="margin-top:8px;text-align:center;">
+      <div style="color:#ffff00;font-weight:bold;font-size:11px;font-family:Verdana;margin-bottom:4px;">-- WEB RING --</div>
+      <div style="font-size:10px;color:#aaaaaa;font-family:Verdana;">
+        <a onclick="openExternalLink('WebRing Prev')" style="color:#00ffff;cursor:pointer;">&laquo; Prev</a> &nbsp;|&nbsp;
+        <a onclick="openExternalLink('WebRing Next')" style="color:#00ffff;cursor:pointer;">Next &raquo;</a><br/>
+        <a onclick="openModal('EMO SITES WEBRING','&lt;p style=&quot;font-family:Verdana;font-size:11px;&quot;&gt;Welcome to the Emo Sites WebRing!! There are 47 member sites. Use the Prev/Next buttons to browse!! To join, sign my guestbook with ur site URL :)&lt;/p&gt;')" style="color:#ffff00;font-size:9px;cursor:pointer;">EMO SITES WEBRING</a>
+      </div>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="3" class="footer-cell">
+    <div style="color:#ffff00;font-size:12px;font-family:Comic Sans MS;margin-bottom:3px;">~*~ Brittany's Awesome Website ~*~</div>
+    Copyright &copy; 2007 ~*~Brittany~*~ | All Rights Reserved | No stealing my stuff!!!<br/>
+    <span style="font-size:10px;color:#888888;">Best viewed in Internet Explorer 6.0 @ 800x600 | Please don't steal my layout!!!</span><br/>
+    <div style="margin-top:5px;">
+      <span style="font-size:11px;color:#00ff00;font-family:Verdana;">
+        Page loaded in 0.003 seconds | <a href="#" style="color:#00ffff;">Valid HTML 4.01</a> | <a href="#" style="color:#00ffff;">Valid CSS</a>
+      </span>
+    </div>
+    <div style="margin-top:5px;font-size:10px;color:#aaaaaa;">
+      Powered by <a href="#" style="color:#ffff00;">Angelfire</a> | Free layouts from <a href="#" style="color:#ffff00;">LayoutsbyAshlee.com</a>
+    </div>
+  </td>
+</tr>
+</table>
+
+<script type="text/javascript">
+// ---- FLOATING STARS ----
+var starfield = document.getElementById('starfield');
+var symbols = ['*', '+', 'x', '*', '+'];
+for (var i = 0; i < 30; i++) {
+  var star = document.createElement('div');
+  star.className = 'floating-star';
+  star.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+  star.style.left = Math.random() * 100 + '%';
+  star.style.animationDelay = (Math.random() * 8) + 's';
+  star.style.animationDuration = (6 + Math.random() * 8) + 's';
+  starfield.appendChild(star);
+}
+
+// ---- HIT COUNTER ----
+var counter = document.getElementById('counter');
+var num = 1337;
+setInterval(function() { if (Math.random() > 0.97) { num++; counter.textContent = String(num).padStart(6, '0'); } }, 2000);
+
+// ---- WELCOME POPUP ----
+window.onload = function() {
+  setTimeout(function() {
+    alert("Welcome 2 my site!!!! :)\n\nPlease sign my guestbook and add me on MySpace!!!\n\nAIM: xStarlightDreamerx\n\n~~*~~ Brittany ~~*~~");
+  }, 500);
+};
+
+// ---- NAVIGATION ----
+function showPage(page) {
+  var sections = document.querySelectorAll('.page-section');
+  for (var i = 0; i < sections.length; i++) sections[i].classList.remove('active');
+  document.getElementById('page-' + page).classList.add('active');
+  var navs = document.querySelectorAll('.navbar a');
+  for (var j = 0; j < navs.length; j++) navs[j].classList.remove('active');
+  var activeNav = document.getElementById('nav-' + page);
+  if (activeNav) activeNav.classList.add('active');
+  document.getElementById('mainContent').scrollTop = 0;
+  window.scrollTo(0, 0);
+}
+
+// ---- MODAL ----
+function openModal(title, bodyHtml) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = bodyHtml;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function closeModalOutside(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+
+// ---- COMMENTS ----
+var commentsData = {
+  'update1': [],
+  'mcr': [
+    {name:'xXxKayla2007xXx', text:'OMG I KNOW RIGHT MCR IS EVERYTHING!!!! &lt;3 &lt;3'},
+    {name:'EMO_4EVR', text:'welcome to the black parade changed my life ngl'},
+    {name:'PrincessBubbles', text:'I cry every time I hear that song omg'}
+  ],
+  'quiz': [
+    {name:'Ashley', text:'i got Passionate Idealist!! lol are we even the same person brittany haha'},
+    {name:'DarkPhoenix666', text:'i got The Lone Wolf. accurate.'},
+    {name:'xXxKayla2007xXx', text:'DREAMY ROMANTIC!! same as u!!!!! we r twins lol'},
+    {name:'SkaterBoi94', text:'i took this for a joke and got the same as u lol'},
+    {name:'Random_Girl_2007', text:'omg I got dreamy romantic too!!! this quiz is SO accurate'},
+    {name:'EMO_4EVR', text:'got lone wolf. obviously.'},
+    {name:'PrincessBubbles', text:'romantic!! &lt;3 love ur site btw'}
+  ]
+};
+function openComments(post) {
+  var entries = commentsData[post] || [];
+  var html = '<div style="margin-bottom:8px;">';
+  if (entries.length === 0) {
+    html += '<p style="font-family:Verdana;font-size:11px;color:#888;">No comments yet!! Be the first :)</p>';
+  } else {
+    for (var i = 0; i < entries.length; i++) {
+      html += '<div class="comment-box"><span class="comment-author">' + entries[i].name + ':</span> ' + entries[i].text + '</div>';
     }
+  }
+  html += '</div><hr/><b style="font-family:Verdana;font-size:12px;">Leave a comment:</b><br/><br/>';
+  html += '<label style="font-family:Verdana;font-size:11px;">Name:</label><input type="text" id="cName" />';
+  html += '<label style="font-family:Verdana;font-size:11px;">Comment:</label><textarea id="cText" style="height:50px;width:100%;box-sizing:border-box;font-family:Verdana;font-size:11px;border:2px inset #888;"></textarea>';
+  html += '<div style="text-align:center;margin-top:6px;"><button class="form-submit" onclick="postComment(\'' + post + '\')">[ POST COMMENT ]</button></div>';
+  openModal('Comments', html);
 }
-setInterval(draw, 33);
-
-// ALWAYS WIN
-function useHax() {
-    const username = document.getElementById("username").value || "1337_HAXOR";
-    const bar = document.getElementById("loadingBar");
-    const container = document.getElementById("loadingContainer");
-    const text = document.getElementById("loadingText");
-
-    container.style.display = "block";
-    text.innerText = "USING HAX...";
-    let progress = 0;
-
-    const interval = setInterval(() => {
-        progress += Math.random() * 15;
-        bar.style.width = progress + "%";
-
-        if (progress > 30) text.innerText = "BYPASSING FBI...";
-        if (progress > 60) text.innerText = "DELETING MAINFRAME...";
-        if (progress > 85) text.innerText = "DESTROYING INTERWEB...";
-
-        if (progress >= 100) {
-            clearInterval(interval);
-            document.getElementById("loginScreen").style.display = "none";
-            document.getElementById("dashboard").style.display = "block";
-            document.getElementById("welcomeText").innerText =
-                "Welcome, [" + username + "]";
-function randomIP() {
-    return `${rand255()}.${rand255()}.${rand255()}.${rand255()}`;
+function postComment(post) {
+  var name = document.getElementById('cName').value.trim();
+  var text = document.getElementById('cText').value.trim();
+  if (!name || !text) { alert('fill in both fields lol!!'); return; }
+  commentsData[post].push({name: name, text: text});
+  alert('Comment posted!! Thanx :D');
+  closeModal();
 }
 
-function rand255() {
-    return Math.floor(Math.random() * 256);
+// ---- GUESTBOOK ----
+function submitGuestbook() {
+  var name = document.getElementById('gbName').value.trim();
+  var msg = document.getElementById('gbMsg').value.trim();
+  if (!name || !msg) { alert('please fill in ur name and a message lol!!'); return; }
+  var site = document.getElementById('gbSite').value.trim();
+  var div = document.createElement('div');
+  div.className = 'gb-entry';
+  var now = new Date();
+  div.innerHTML = '<span class="gb-name">' + name + '</span> <span class="gb-date">just now</span><br/>' + msg + (site ? ' <a href="' + site + '" style="color:#0000ff;font-size:10px;">[visit site]</a>' : '');
+  document.getElementById('gbEntries').insertBefore(div, document.getElementById('gbEntries').firstChild);
+  document.getElementById('gbName').value = '';
+  document.getElementById('gbMsg').value = '';
+  document.getElementById('gbSite').value = '';
+  alert('OMG THANX FOR SIGNING!!! :D :D I will visit ur site soon!!');
 }
 
-function randomIPv6() {
-    let blocks = [];
-    for (let i = 0; i < 8; i++) {
-        blocks.push(Math.floor(Math.random()*65536).toString(16));
-    }
-    return blocks.join(":");
+// ---- CONTACT ----
+function submitContact() {
+  var name = document.getElementById('contactName').value.trim();
+  var email = document.getElementById('contactEmail').value.trim();
+  var msg = document.getElementById('contactMsg').value.trim();
+  if (!name || !msg) { alert('pls fill in ur name and message!!'); return; }
+  document.getElementById('contactName').value = '';
+  document.getElementById('contactEmail').value = '';
+  document.getElementById('contactSubject').value = '';
+  document.getElementById('contactMsg').value = '';
+  alert('Message sent!!!! I will reply as soon as I can!!! :D (probably tonight after homework lol)');
 }
 
-function randomMAC() {
-    let mac = [];
-    for (let i = 0; i < 6; i++) {
-        mac.push(Math.floor(Math.random()*256).toString(16).padStart(2,"0"));
-    }
-    return mac.join(":").toUpperCase();
+// ---- POLL ----
+function submitPoll() {
+  var radios = document.getElementsByName('poll');
+  var chosen = null;
+  for (var i = 0; i < radios.length; i++) { if (radios[i].checked) { chosen = radios[i].value; break; } }
+  if (!chosen) { alert('pick one lol!!'); return; }
+  alert('ur vote for ' + chosen + ' has been counted!!! Thanx!!!\n\n(tbh if u didnt pick MCR ur wrong lol jk jk :P)');
 }
 
-function randomDigits(length) {
-    let str = "";
-    for (let i = 0; i < length; i++) {
-        str += Math.floor(Math.random()*10);
-    }
-    return str;
+// ---- MUSIC ----
+var tracks = [
+  'MCR - Welcome to the Black Parade',
+  'P!ATD - I Write Sins Not Tragedies',
+  'FOB - Sugar We\'re Goin Down',
+  'Paramore - Misery Business',
+  'The Used - All That I\'ve Got',
+  'Evanescence - Bring Me To Life',
+  'Dashboard Confessional - Hands Down',
+  'Taking Back Sunday - MakeDamnSure',
+  'Hawthorne Heights - Ohio Is For Lovers',
+  'My Heart Will Go On (MIDI lol)'
+];
+var currentTrack = 0;
+var playing = true;
+function selectTrack(i) {
+  currentTrack = i;
+  playing = true;
+  document.getElementById('nowPlaying').textContent = tracks[i];
+  document.getElementById('playBtn').textContent = '[ || ]';
+  var items = document.getElementById('trackList').children;
+  for (var j = 0; j < items.length; j++) items[j].classList.remove('playing');
+  items[i].classList.add('playing');
+}
+function musicControl(action) {
+  if (action === 'play') {
+    playing = !playing;
+    document.getElementById('playBtn').textContent = playing ? '[ || ]' : '[ >> ]';
+    if (!playing) alert('Music paused!! ur missing out lol');
+  } else if (action === 'stop') {
+    playing = false;
+    document.getElementById('playBtn').textContent = '[ >> ]';
+    document.getElementById('nowPlaying').textContent = '(stopped)';
+    alert('Music stopped! Click play to start again :)');
+  } else if (action === 'next') {
+    selectTrack((currentTrack + 1) % tracks.length);
+  } else if (action === 'prev') {
+    selectTrack((currentTrack - 1 + tracks.length) % tracks.length);
+  }
 }
 
-function randomHex(length) {
-    let chars = "ABCDEF0123456789";
-    let str = "";
-    for (let i = 0; i < length; i++) {
-        str += chars[Math.floor(Math.random()*chars.length)];
-    }
-    return str;
+// ---- PHOTOS ----
+function openPhoto(caption, color) {
+  var html = '<div style="background:' + color + ';width:100%;height:200px;display:flex;align-items:center;justify-content:center;border:2px inset #888;">';
+  html += '<span style="color:#fff;font-family:Verdana;font-size:13px;text-align:center;">[ PHOTO ]<br/><span style="font-size:10px;">Digital camera photo<br/>taken with my Kodak EasyShare</span></span></div>';
+  html += '<p style="font-family:Verdana;font-size:12px;text-align:center;margin-top:8px;"><b>' + caption + '</b></p>';
+  html += '<p style="font-size:10px;font-family:Verdana;color:#888;text-align:center;">right-click to save!! (no hotlinking tho pls!!)</p>';
+  openModal('Photo Viewer', html);
 }
 
-function generateFakeDox() {
-    const panel = document.getElementById("doxPanel");
-
-    panel.innerText =
-`IP: ${randomIP()}
-(N): ${randomHex(6)}
-(W): ${randomHex(8)}
-SS Number: ${randomDigits(9)}
-IPv6 Address: ${randomIPv6()}
-WAN IP: ${randomIP()}
-WAN Type: Dynamic IP (DHCP)
-Gateway: ${randomIP()}
-Subnet Mask: 255.${rand255()}.255.0
-UPnP: Enabled
-DMZ: Active
-MAC Address: ${randomMAC()}
-Router IP: ${randomIP()}
-Firewall Status: Disabled
-Port Forwarding: Enabled
-Operating System: Windows Vista
-ISP: Hax Providers LLC
-Wi-Fi Password: ${randomDigits(12)}`;
-}
-            // random profile color
-            document.getElementById("profileCircle").style.background =
-                "hsl(" + Math.random()*360 + ",100%,50%)";
-		generateFakeDox();
-        }
-    }, 300);
+// ---- FRIEND PROFILES ----
+var friends = {
+  'Kayla': {desc: 'omg kayla is my BEST FRIEND!!!! we have been friends since 4th grade!!! she is so funny and nice and we both love mcr!!!! &lt;3 &lt;3', mood: 'hyper lol'},
+  'Ashley': {desc: 'ashley is also my best friend!! yes i have 2 lol. she thinks fob is better than mcr which is WRONG but whatever she is still cool :P', mood: 'whatever'},
+  'DarkPhoenix666': {desc: 'i met him on the mcr forum!! he has really cool art on his deviantart page go check it out!!', mood: 'dark and brooding lol'},
+  'PrincessBubbles': {desc: 'she goes to my school!! she is super nice and her website layout is so pretty omg', mood: 'bubbly!!'},
+  'SkaterBoi94': {desc: 'he lives down the street and taught me how to ollie (i cant do it lol)', mood: 'chill'},
+  'EMO_4EVR': {desc: 'really emo lol but in a good way. knows every lyric to every mcr song which is impressive', mood: '...'}
+};
+function openFriendProfile(name) {
+  var f = friends[name] || {desc: 'cool person!!', mood: 'unknown'};
+  var html = '<div style="background:#fff0ff;border:2px solid #800080;padding:8px;font-family:Verdana;font-size:12px;">';
+  html += '<b style="color:#800080;font-size:14px;font-family:Comic Sans MS;">' + name + '</b><br/><br/>';
+  html += '<p>' + f.desc + '</p>';
+  html += '<p><b>Current Mood:</b> ' + f.mood + '</p>';
+  html += '<hr/><p style="font-size:10px;color:#888;">** this profile was written by brittany and may not be 100% accurate lol **</p>';
+  html += '</div>';
+  openModal(name + "'s Profile", html);
 }
 
-// FAKE CRASH WITH SLOW TEXT
-function crash() {
-    const bsod = document.getElementById("bluescreen");
-    bsod.style.display = "block";
+// ---- QUIZ ----
+var quizQuestions = [
+  {q: 'Ur fave MCR song is:', a: ['Welcome to the Black Parade', 'Helena', 'I\'m Not Okay', 'Famous Last Words']},
+  {q: 'On a Friday night u are:', a: ['At a concert', 'At home writing in my journal', 'Hanging with friends', 'On AIM for hours']},
+  {q: 'Ur fave color is:', a: ['Black', 'Purple', 'Red', 'Hot pink']},
+];
+var quizAnswers = [];
+var quizStep = 0;
+function openQuiz() {
+  quizAnswers = [];
+  quizStep = 0;
+  showQuizStep();
+}
+function showQuizStep() {
+  if (quizStep >= quizQuestions.length) {
+    var results = ['The Dreamy Romantic', 'The Lone Wolf', 'The Passionate Idealist', 'The Quirky Creative'];
+    var result = results[Math.floor(Math.random() * results.length)];
+    var html = '<div style="text-align:center;font-family:Verdana;">';
+    html += '<p style="font-size:13px;font-weight:bold;color:#800080;">YOUR RESULT IS:</p>';
+    html += '<p style="font-size:20px;font-weight:bold;color:#ff00ff;font-family:Comic Sans MS;">' + result + '!!!</p>';
+    html += '<p style="font-size:11px;">You are creative, emotional, and totally awesome!! ur friends think ur the coolest person ever!!</p>';
+    html += '<p style="font-size:10px;color:#888;">post ur result on ur site!! copy and paste the code below:</p>';
+    html += '<textarea style="width:100%;height:40px;font-size:10px;font-family:Courier New;">&lt;b&gt;I am: ' + result + '!!&lt;/b&gt; (take the quiz at brittany-awesome-site.angelfire.com)</textarea>';
+    html += '<br/><button class="form-submit" onclick="openQuiz()">[ TAKE IT AGAIN!! ]</button>';
+    html += '</div>';
+    openModal('Quiz Results!!!', html);
+    return;
+  }
+  var q = quizQuestions[quizStep];
+  var html = '<p style="font-family:Verdana;font-size:12px;font-weight:bold;">Question ' + (quizStep+1) + ' of ' + quizQuestions.length + ':</p>';
+  html += '<p style="font-family:Verdana;font-size:13px;color:#800080;">' + q.q + '</p>';
+  for (var i = 0; i < q.a.length; i++) {
+    html += '<div style="margin:4px 0;"><button onclick="quizAnswer(' + i + ')" style="background:#000080;color:#ffff00;border:2px outset #aaa;font-family:Verdana;font-size:11px;cursor:pointer;padding:4px 10px;width:100%;text-align:left;">' + q.a[i] + '</button></div>';
+  }
+  openModal('What Type of Person R U??? Quiz!!!', html);
+}
+function quizAnswer(i) {
+  quizAnswers.push(i);
+  quizStep++;
+  showQuizStep();
+}
 
-    const text = `:(
-
-Your PC ran into a problem and needs to restart.
-
-Collecting error info...
-
-STOP CODE: TOTALLY_NOT_A_VIRUS
-
-Scan QR code for more info.
-(no joke)`;
-
-    let i = 0;
-    bsod.innerText = "";
-
-    const type = setInterval(() => {
-        bsod.innerText += text[i];
-        i++;
-        if (i >= text.length) clearInterval(type);
-    }, 40);
+// ---- EXTERNAL LINK ----
+function openExternalLink(site) {
+  openModal('Leaving Site!!', '<p style="font-family:Verdana;font-size:12px;">u r about to leave my site to visit:<br/><br/><b>' + site + '</b><br/><br/>This site is not owned by me and I am not responsible for its content!!! (my mom made me put this lol)<br/><br/><span style="color:#888;font-size:10px;">(This is a 2007 simulation - links are not real :)</span></p>');
 }
 </script>
-
 </body>
 </html>
