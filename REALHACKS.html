@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>H4X0R LOGIN SYSTEM 2012</title>
+
+<style>
+body {
+    margin: 0;
+    background: #003300;
+    cursor: url("https://img1.picmix.com/output/stamp/normal/2/7/3/3/2073372_31a85.gif"), auto;
+    overflow: hidden;
+}
+
+/* MATRIX */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* LOGIN */
+.login {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 120px;
+    color: lime;
+    font-family: monospace;
+}
+
+input {
+    font-family: "Comic Sans MS";
+    font-size: 22px;
+    background: black;
+    color: cyan;
+    border: 3px dashed magenta;
+    margin: 10px;
+    padding: 5px;
+}
+
+button {
+    font-family: Courier New;
+    font-size: 16px;
+    background: yellow;
+    color: black;
+    border: 4px double red;
+    padding: 10px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 60px;
+    font-size: 120px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Rainbow win */
+.rainbow {
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowMove 2s linear infinite;
+}
+
+@keyframes rainbowMove {
+    0% { background-position: 0%; }
+    100% { background-position: 400%; }
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: none;
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    font-family: "Comic Sans MS";
+    color: white;
+}
+
+.profile {
+    width: 160px;
+    height: 160px;
+    background: gray;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.welcome {
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+.menu button {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 50px;
+    margin: 15px 0;
+    text-align: left;
+    font-family: "Comic Sans MS";
+    cursor: pointer;
+}
+
+.menu button:hover {
+    color: lime;
+}
+
+/* FAKE BLUE SCREEN */
+#bluescreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000aa;
+    color: white;
+    font-family: "Comic Sans MS";
+    z-index: 9999;
+    padding: 60px;
+}
+
+#bluescreen h1 {
+    font-size: 60px;
+}
+
+#bluescreen img {
+    margin-top: 40px;
+    width: 200px;
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="login" id="loginScreen">
+    <h1 style="color:red; font-family:Impact;">ULTRA SECURE LOGIN</h1>
+    <div>USERNAME:</div>
+    <input type="text" id="username">
+    <div>PASSWORD:</div>
+    <input type="password" id="password">
+    <br>
+    <button onclick="login()">LOG IN</button>
+    <div id="result"></div>
+</div>
+
+<div class="dashboard" id="dashboard">
+    <div class="profile"></div>
+    <div class="welcome" id="welcomeText"></div>
+
+    <div class="menu">
+        <button onclick="crash()">DELETE SYSTEM32</button>
+        <button onclick="crash()">STEAL RUNESCAPE ACCOUNT</button>
+        <button onclick="crash()">OVERHEAT CPU</button>
+        <button onclick="crash()">HACK PENTAGON</button>
+        <button onclick="crash()">FREE ROBUX GENERATOR</button>
+        <button onclick="crash()">OPEN DARK WEB</button>
+    </div>
+</div>
+
+<div id="bluescreen" onclick="reboot()">
+    <h1>:(</h1>
+    <p>Your PC ran into a problem and needs to restart.</p>
+    <p>We're just collecting some error info, and then we'll restart for you.</p>
+    <p>Stop code: SYSTEM_IS_GONE_FOREVER</p>
+
+    <img src="https://ih1.redbubble.net/image.4985559515.2005/st,small,507x507-pad,600x600,f8f8f8.jpg">
+
+    <p>Scan the QR code for more information.</p>
+    <p>(Click anywhere to reboot)</p>
+</div>
+
+<script>
+// MATRIX
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01";
+const fontSize = 18;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for (let x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 51, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff00";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+
+// LOGIN
+function login() {
+    const result = document.getElementById("result");
+    const username = document.getElementById("username").value || "UNKNOWN";
+
+    if (Math.random() < 0.5) {
+        result.className = "rainbow";
+        result.innerHTML = "YOU WIN!";
+
+        setTimeout(() => {
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+            document.getElementById("welcomeText").innerHTML =
+                "Welcome, [" + username + "]";
+        }, 1500);
+
+    } else {
+        result.style.color = "orange";
+        result.innerHTML = "ACCESS DENIED";
+    }
+}
+
+// FAKE CRASH
+function crash() {
+    document.getElementById("bluescreen").style.display = "block";
+}
+
+// REBOOT
+function reboot() {
+    location.reload();
+}
+</script>
+
+</body>
+</html>
